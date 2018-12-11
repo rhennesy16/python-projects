@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>friends</title>
+<style>
+	*{
+		margin: 0px;
+		padding: 0px;
+		text-align: center;
+	}
+	.wrapper{
+		width: 500px;
+		text-align: center;
+		padding: 25px;
+	}
+	table{
+		border: solid 1px black;
+		width: 450px;
+		text-align: center;
+	}
+
+</style>
+</head>
+<body>
+	<div class="wrapper">
+		<h1>These are all my friends!</h1>
+			<table class="table1">
+				<tr>
+					<th>
+						<td>First name</td>
+						<td>Last name</td>
+						<td>Occupation</td>
+					</th>
+				</tr>
+					{%for i in friends%}
+				<tr>
+   		 			<td>{{i['first_name']}}</td>
+   		 			<td>{{i['last_name']}}</td>
+   		 			<td>{{i['occupation']}}</td>
+   		 		</tr>
+   		 			{%endfor%}
+			</table> 
+		<br>
+		<h1>Add a friend</h1>
+		<form action = '/create_friend' method="POST">
+			<table>
+				<tr>
+					<td>First name:</td>
+					<td><input type="text" name="FirstName"></td>
+				</tr>
+				<tr>
+					<td>Last name:</td>
+					<td><input type="text" name="LastName"></td>
+		   		</tr>
+		   		<tr>	
+		   			<td>Occupation:</td>
+					<td><input type="text" name="Occupation"></td>
+				</tr>
+			</table>
+			<button>add</button>
+		</form>
+	</div>
+</body>
+</html>

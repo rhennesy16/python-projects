@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+	table, table tr, table tr td{
+		border: 1px solid black;
+	}
+	table thead, table tr td{
+		margin: 10px;
+	}
+	</style>
+</head>
+<body>
+	{% if messages %}
+	<ul class="messages">
+		{% for message in messages %}
+		<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+	{% endfor %}
+	</ul>
+	{% endif %}
+	<table>
+		<thead>
+			<td>Id</td>
+			<td>Title</td>
+			<td>Network</td>
+			<td>Release Date</td>
+			<td>Actions</td>
+		</thead>
+		{% for show in shows %}
+		<tr>
+			<td>{{show.id}}</td>
+			<td>{{show.title}}</td>
+			<td>{{show.network}}</td>
+			<td>{{show.date}}</td>
+			<td><a href="/show">Show</a> | <a href="/edit/{{show.id}}">Edit</a> | <a href="/destroy/{{show.id}}">Delete</a></td>
+		</tr>
+		{%endfor%}
+	</table>
+	<a href="/add_new_show">Add new show</a> 
+</body>
+</html>

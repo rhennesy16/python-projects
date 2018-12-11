@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1>Welcome!!!</h1>
+	<h2>Please Register</h2>
+	{% if messages %}
+	<ul class="messages">
+		{% for message in messages %}
+		<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+		{% endfor %}
+	</ul>
+	{% endif %}
+	<form action="/register" method="POST">
+		{% csrf_token %}
+		<table>
+		<tr>
+			<td>
+				<label>First Name</label>
+				<input type="text" name="first_name">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label>Last Name</label>
+				<input type="text" name="last_name">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label>Email</label>
+				<input type="text" name="email">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label>Password</label>
+				<input type="text" name="password">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label>Confirm Password</label>
+				<input type="text" name="confirm_password">
+			</td>
+		</tr>
+		</table>
+		<input type="submit" name="register" value="Register">
+	</form>
+	<h2>Please Login</h2>
+	{% if messages %}
+	<ul class="messages">
+		{% for message in messages %}
+		<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+		{% endfor %}
+	</ul>
+	{% endif %}
+	<form action="/login" method="POST">
+		{% csrf_token %}
+		<table>
+		<tr>
+			<td>
+				<label>Email</label>
+				<input type="text" name="email">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label>Password</label>
+				<input type="password" name="password">
+			</td>
+		</tr>
+		</table>
+		<input type="submit" name="login" value="Login">
+	</form>
+</body>
+</html>

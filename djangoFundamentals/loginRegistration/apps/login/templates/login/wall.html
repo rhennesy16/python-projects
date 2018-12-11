@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <style>
+    *{
+        padding: 0px;
+        margin: 0px;
+    }
+    .container{
+    width: 1000px;
+    padding: 25px 50px 50px 50px;
+    box-sizing: content-box;
+    margin: 0 auto;
+    margin-top: 50px;
+    display: inline-block;
+	}
+    .header{
+        height: 5%;
+        width: 100%;
+        background-color: lightblue;
+        display: inline-block;
+        border: 2px solid lightblue;
+        border-radius: 9px;
+        vertical-align: top;
+    }
+    .header h3{
+        margin-top: 20px;
+    }
+    .header p{
+        display: inline-block;
+        margin-left: 750px;
+        margin-bottom: 20px;
+    }
+    .header a{
+        margin-left: 100px;
+    }
+    .mbody{
+        text-align: center;
+    }
+	</style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h3>CodingDojo Wall</h3>
+            <p>Welcome {{Users.first_name}}</p>
+            <a href="/logout">Logout</a>
+        </div>
+        <div class="mbody">
+            <form action="/message" method="POST">
+            {% csrf_token %}
+                <label><h2>Post a Message</h2></label><br>
+                <input type="text" name="message"><br>
+                <input type="submit" name="pmessage" value="Post a message">
+            </form>
+            {% for message in messages %}
+                {{message.user.first_name}} {{message.user.last_name}} 
+                {{message.created_at}}
+                <p>{{message.message}}</p>
+                {% for c in message.comment.all %}
+                {{message.user.first_name}} {{message.user.last_name}} 
+                {{message.created_at.desc}}
+                <p>{{c.comment}}</p>
+                {% endfor %}
+            <form action="/comment" method="POST">
+            {% csrf_token %}
+                <label><h2>Post a comment</h2></label><br>
+                <input type="hidden" name="message_id" value="{{message.id}}">
+                <input type="text" name="comment"><br>
+                <input type="submit" name="pcomment" value="Post a comment">
+            </form>
+            {% endfor %}
+        
+        </div>
+    </div>
+</body>
+</html>

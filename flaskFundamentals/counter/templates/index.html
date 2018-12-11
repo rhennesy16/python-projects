@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+<head>
+</head>
+<body>
+
+  <form action='/count' method='post'>
+      <h1>COUNTER</h1>
+    <h2>{{ session['count'] }} Times</h2>
+    <button name='add' >Add 2</button>
+  </form>
+  <form action='/reset'>
+    <button name='reset'>Reset</button>
+  </form>
+</body>
+</html>

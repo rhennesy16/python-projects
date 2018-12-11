@@ -1,0 +1,36 @@
+<!Doctype html>
+<html>
+<head>
+    <title>Login form</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+    .container {
+    border: 2px solid black;
+    width: 1000px;
+    padding: 25px 50px 50px 50px;
+    box-sizing: content-box;
+    margin: 0 auto;
+    margin-top: 50px;
+    display: inline-block;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Login</h1>
+        <form action='/validate' method='post'>
+            {% with errors = get_flashed_messages(category_filter=["emailError"]) %}
+                {% include "partial.html" %}
+            {% endwith %}
+            <label for='email'>Email:</label>
+            <input type='text' name='email' value={{session['email']}} ><br/>
+            {% with errors = get_flashed_messages(category_filter=["passwordError"]) %}
+                {% include "partial.html" %}
+            {% endwith %}
+            <label for='password'>Password:</label>
+            <input type='password' name='password'/><br/>
+            <input type='submit' value='Submit'>
+        </form>
+    </div>
+</body>
+</html>

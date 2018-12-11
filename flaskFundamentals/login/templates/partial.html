@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+	.error {
+    color: red;
+    font-size: 14px;
+    margin-top: -17px;
+	}
+	</style>
+</head>
+<body>
+{% if errors %}
+    <div class="error">
+        {%- for msg in errors %}
+        <p>{{ msg }}</p>
+        {% endfor -%}
+    </div>
+{% endif %}
+</body>
+</html>

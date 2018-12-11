@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>time display</title>
+	<style>
+	.wrapper{
+		text-align: center;
+		width: 1000px;
+		height: 500px;
+		border: 2px solid black;
+		margin: 100px;
+		padding: 50px;
+	}
+	.top_box{
+		border: 2px solid black;
+		padding: 5px;
+		width: 200px;
+		margin-left: 400px;
+		margin-bottom: 20px;
+	}
+	.lower_box{
+		border: 2px solid black;
+		width: 400px;
+		margin-left: 300px;
+		padding-bottom: 10px;
+		padding-top: 10px;
+	}
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="top_box">
+			The current time and date:
+		</div>
+		<div class="lower_box">
+			{{date}}<br>
+			{{time}}
+		</div>
+	</div>
+</body>
+</html>

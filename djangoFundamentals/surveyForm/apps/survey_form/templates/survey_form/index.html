@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>survey form</title>
+	<style>
+	*{
+		padding: 0px;
+		margin: 0px;
+	}
+	.wrapper{
+		width: 1000px;
+		height: 500px;
+		padding: 250px;
+	}
+	.la_table tr td{
+		text-align: left;
+	}
+	.droptop{
+		text-align: center;
+		width: 145px;
+	}
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<div>
+			<form action="/submit" method="POST">
+				{% csrf_token %} 
+				<table class="la_table">
+					<tr>
+						<td>Your Name:</td>
+						<td><input type="text" name="name"></td>
+					</tr>
+					<tr>
+						<td>Dojo Location</td>
+						<td>
+							<select class="droptop" name="location">
+								<option>Seattle</option>
+								<option>San Jose</option>
+								<option>Austin</option>
+							</select> 
+						</td>
+					</tr>
+					<tr>
+						<td>Favorite Language</td>
+						<td>
+							<select class="droptop" name="language">
+								<option>Java</option>
+								<option>C</option>
+								<option>Python</option>
+							</select>
+						</td>
+					</tr>
+				</table>
+				<label>Comment (Optional)</label><br>
+				<input type="text-area" name="text">
+				<input type="submit" name="submit" value="Submit">
+			</form>
+		</div>
+	</div>
+</body>
+</html>

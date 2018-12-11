@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>playground</title>
+<style>
+.wrapper{
+	background-color: white;
+	width: 1243px;
+	text-align: center;
+}
+.box {
+    background-color: LightBlue;
+    width:200px;
+    height:200px;
+    margin: 50px;
+    display: inline-block;
+    border: solid 2px black;
+}
+
+h1 {
+    color: maroon;
+    margin-left: 40px;
+    text-align: center;
+} 
+</style>
+</head>
+<body>
+	<div class="wrapper">
+    <h1>Welcome</h1>
+    {% for i in range(number): %}
+    	<div class="box" style = "background-color: {{hue}}";></div>
+    {% endfor %}
+    </div>
+</body>
+</html>

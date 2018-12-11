@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+	<title>Email validation with db</title>
+</head>
+<body>
+	<div class='container'>
+		<h1>Submit email </h1>
+		<form action='/new_email' method='POST'>
+
+			{% with errors = get_flashed_messages() %}
+				{% if errors %}
+				<div class="error">
+					{%- for msg in errors %}
+					<p>{{ msg }}</p>
+					{% endfor -%}
+				</div>
+				{% endif %}
+			{% endwith %}
+			<label for='email'>Email: <input type='text', name='email'/></label>
+			<input type='submit' name='Submit' value="submit">
+		</form>
+		<h1>Email addresses entered</h1>
+		{%for i in emails%}
+		<p>{{i.email}}</p>
+		{%endfor%}
+	</div>
+</body>
+</html>

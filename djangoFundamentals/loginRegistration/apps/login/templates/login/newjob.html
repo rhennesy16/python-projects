@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>add job</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+	<h1>Add a New Job</h1>
+	<form class="col-lg-3" action="/add " method="POST">
+		{% csrf_token %}
+	{% if messages %}
+	<ul class="messages">
+		{% for message in messages %}
+		<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+		{% endfor %}
+	</ul>
+	{% endif %}
+		<table>
+			<tr>
+				<td>
+					<label>Job title</label>
+					<input type="text" name="title">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label>Job description</label>
+					<input type="text" name="description">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label>Job location</label>
+					<input type="text" name="location">
+				</td>
+				
+		</table>
+		<input type="submit" name="create" value="create">
+	</form>
+</body>
+</html>

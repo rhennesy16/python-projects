@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <title>tables</title>
+      <style>
+      *{
+        text-align: center;
+        margin: 0px;
+        padding: 0px;
+      }
+      table, thead, td, tr{
+        border: solid 1px black;
+      }
+      table{
+        text-align: center;
+        margin: 100px;
+      }
+      </style>
+  </head>
+  <body>
+    <table>
+      <thead>
+        <td>First Name</td>
+        <td>Last Name</td>
+        <td>Full Name</td>
+      </thead>
+      {% for student in students %}
+      <tr>
+        <td>{{student['first_name']}}</td>
+        <td>{{student['last_name']}}</td>
+        <td>{{student['first_name']+" "+student['last_name']}}</td>
+      </tr>
+      {% endfor %}
+      </table>
+  </body>
+</html>

@@ -1,0 +1,1 @@
+SELECT * FROM belt_schema.ideas;

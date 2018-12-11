@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>survey form</title>
+</head>
+<body>
+	<div class="wrapper">
+		<div>
+			{% if messages %}
+			<ul class="messages">
+    			{% for msg in messages %}       
+    			<li>
+       				<div class="alert alert-{{msg.level_tag}}" role="alert">
+        				{{msg.message}}
+        			</div>
+    			</li>
+    			{% endfor %}
+			</ul>
+			{% endif %}
+			<form>
+				{% csrf_token %} 
+				<table class="la_table">
+					<th>Submitted Information</th>
+					<tr>
+						<td>Name:</td>
+						<td>{{request.session.name}}</td>
+					</tr>
+					<tr>
+						<td>Dojo Location:</td>
+						<td>{{request.session.location}}</td>
+					</tr>
+					<tr>
+						<td>Favorite Language:</td>
+						<td>{{request.session.language}}</td>
+					</tr>
+				</table>
+				<input type="submit" name="goback" value="Go Back">
+			</form>
+		</div>
+	</div>
+</body>
+</html>

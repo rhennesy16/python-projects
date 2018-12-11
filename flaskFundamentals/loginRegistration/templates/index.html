@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+	span{
+		color: red;
+	}
+	.wrapper{
+		width: 1050px;
+	}
+	table{
+		width: 525px;
+		vertical-align: top;
+	}
+	</style>
+</head>
+<body>
+	<div>
+		<h1>Login and Registration</h1>
+	</div>
+	<div class="wrapper">
+	<div>
+		<h2>Register here!</h2>
+		{% with messages = get_flashed_messages() %}
+    		{% if messages %}
+      			{% for message in messages %}
+        			<p>{{message}}</p>
+      			{% endfor %}
+    		{% endif %}
+  		{% endwith %}
+		<form>
+			<table>
+				<tr>
+					<td>
+						First Name:
+					</td>
+				</tr>
+				
+				<tr>	
+					<td>
+						<span>First name must contain atleast 2 letters and contain only letters</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="text" name="" value="">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Last Name:
+					</td>
+				</tr>
+				
+				<tr>	
+					<td>
+						<span>Last name must contain atleast 2 letters and contain only letters</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="text" name="" value="">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Email:
+					</td>
+				</tr>
+				
+				<tr>	
+					<td>
+						<span>Invalid email</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="text" name="" value="">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Password:
+					</td>
+				</tr>
+				<tr>	
+					<td>
+						<span>Password must contain a number, a capital letter, and must be 8-15 characters in length</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="text" name="" value="">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Confirm Password:
+					</td>
+				</tr>
+				<tr>	
+					<td>
+						<span>Passwords must match</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="text" name="" value="">
+					</td>
+				</tr>
+		</table>
+		<input type="submit" name="" value="Register!">
+	</div>
+	<div>
+		<h2>Login here!</h2>
+		<form>
+			<table>
+				<tr>
+					<td>
+						Email:
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="text" name="" value="">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Password:
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="text" name="" value="">	
+					</td>
+				</tr>
+			</table>
+		</form>
+		<input type="submit" name="" value="Login!">
+	</div>
+	</div>
+</body>
+</html>

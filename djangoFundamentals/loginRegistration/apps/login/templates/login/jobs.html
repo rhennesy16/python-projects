@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<style>
+	table, table tr, table tr td{
+		border: 1px solid black;
+	}
+	table thead, table tr td{
+		margin: 10px;
+	}
+	</style>
+</head>
+<body>
+	<head>
+		{{chores.user.first_name}}
+		<p>Welcome {{chores.user.first_name}}</p>
+		<a href="/new">Add new job</a>
+		<a href="/logout">Logout</a> 
+	</head>
+	<table class="col-lg-3">
+		<thead>
+			<td>Job title</td>
+			<td>Job desription</td>
+			<td>Location</td>
+			<td>Action</td>
+		</thead>
+		{% for job in chores %}
+		<tr>
+			<td>{{job.title}}</td>
+			<td>{{job.description}}</td>
+			<td>{{job.location}}</td>
+			<td><a href="/show/{{job.id}}">View</a> | <a href="/edit/{{job.id}}">Edit</a> | <a href="/delete/{{job.id}}">Cancel</a></td>
+		</tr>
+		{%endfor%}
+	</table>
+</body>
+</html>

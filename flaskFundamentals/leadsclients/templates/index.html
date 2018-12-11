@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<script>
+window.onload = function () {
+
+var options = {
+	title: {
+		text: "Customers and number of new leads"
+	},
+	subtitles: [{
+		text: "As of November, 2017"
+	}],
+	animationEnabled: true,
+	data: [{
+		type: "pie",
+		startAngle: 40,
+		toolTipContent: "<b>{label}</b>: {y}%",
+		showInLegend: "true",
+		legendText: "{label}",
+		indexLabelFontSize: 16,
+		indexLabel: "{label} - {y}%",
+		dataPoints: [
+			{ y: 8.36, label: "Windows 7" },
+			{ y: 26.85, label: "Windows 10" },
+			{ y: 1.49, label: "Windows 8" },
+			{ y: 6.98, label: "Windows XP" },
+			{ y: 6.53, label: "Windows 8.1" },
+			{ y: 2.45, label: "Linux" },
+			{ y: 3.32, label: "Mac OS X 10.12" },
+			{ y: 4.03, label: "Others" }
+		]
+	}]
+};
+$("#chartContainer").CanvasJSChart(options);
+}
+</script>
+</head>
+<body>
+		<div class="wrapper">
+		<h1>List of all customers and # of leads!</h1>
+			<table class="table1">
+				<tr>
+					<th>
+						<td>Customer name</td>
+						<td>Number of leads</td>
+					</th>
+				</tr>
+					{%for i in customers%}
+				<tr>
+   		 			<td>{{i['customer_name']}}</td>
+   		 			<td>{{i['number_of_new_leads']}}</td>
+   		 		</tr>
+   		 			{%endfor%}
+			</table> 
+		<br>
+		<h1>Add a customer</h1>
+		<form action = '/' method="POST">
+			<table>
+				<tr>
+					<td>Customer name:</td>
+					<td><input type="text" name="Customername"></td>
+				</tr>
+				<tr>
+					<td>Number of new leads:</td>
+					<td><input type="text" name="Numberofnewleads"></td>
+		   		</tr>
+			</table>
+			<button>add</button>
+		</form>
+	</div>
+<div id="chartContainer" style="width: 100%; height: 300px;"></div>
+<script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+<script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+</body>
+</html>
